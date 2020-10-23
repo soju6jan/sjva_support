@@ -1,5 +1,11 @@
 #!/bin/bash
 cd $HOME
+echo "1. Install Alpine.."
+curl -LO https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux_20201023/TermuxAlpine_sjva.sh
+
+exit
+
+curl -LO https://raw.githubusercontent.com/soju6jan/SJVA2/master/etc/termux/alpine_profile1
 cd ../usr/share
 pkg install -y proot
 curl -LO https://soju6jan.com/file/TermuxAlpine32.tar.gz
