@@ -10,7 +10,7 @@ echo "#################"
 curl -LO $git/TermuxAlpine_sjva.sh
 #bash TermuxAlpine_sjva.sh
 curl -LO $git/alpine_profile1
-sed -i 's/#args/$@/' alpine_profile1
+sed -i 's/args/$@/' alpine_profile1
 cat alpine_profile1
 exit
 mv alpine_profile1 $alpine/root/.profile
