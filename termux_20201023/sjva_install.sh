@@ -1,5 +1,8 @@
 #!/bin/bash
-curl https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux_20201023/TermuxAlpine_sjva.sh | bash
+curl -LO https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux_20201023/TermuxAlpine_sjva.sh 
+bash TermuxAlpine_sjva.sh
+rm TermuxAlpine_sjva.sh
+
 
 cd $HOME
 echo "1. Download script 1/3"
