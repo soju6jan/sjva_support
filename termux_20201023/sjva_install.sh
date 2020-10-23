@@ -4,7 +4,6 @@ alpine='/data/data/com.termux/files/usr/share/TermuxAlpine'
 
 curl -LO $git/TermuxAlpine_sjva.sh &&
 bash TermuxAlpine_sjva.sh &&
-rm TermuxAlpine_sjva.sh &&
 curl -LO $git/alpine_profile1 &&
 mv alpine_profile1 $alpine/root/.profile &&
 curl -LO $git/alpine_install.sh &&
