@@ -7,7 +7,7 @@ bash TermuxAlpine_sjva.sh
 curl -LO $git/alpine_profile1
 mv alpine_profile1 $alpine/root/.profile
 curl -LO $git/alpine_profile2
-mv alpine_profile2 $alpine/home/alpine_profile2
+mv alpine_profile2 $alpine/home
 curl -LO $git/alpine_install.sh
 mv alpine_install.sh $alpine/home/alpine_install.sh
 cd $HOME
