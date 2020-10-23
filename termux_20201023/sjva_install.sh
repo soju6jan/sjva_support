@@ -1,4 +1,6 @@
 #!/bin/bash
+curl https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux_20201023/TermuxAlpine_sjva.sh | bash
+
 cd $HOME
 echo "1. Download script 1/3"
 curl -LO https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux_20201023/alpine_profile1
@@ -15,5 +17,5 @@ mv termux_bash_profile ~/.profile
 
 
 echo "2. Install Alpine.."
-curl https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux_20201023/TermuxAlpine_sjva.sh | bash
+
 startalpine
