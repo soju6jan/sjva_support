@@ -1,9 +1,9 @@
 #!/bin/bash
 
 
-ehco $0
+echo $0
 
-ehco $1
+echo $1
 
 
 
