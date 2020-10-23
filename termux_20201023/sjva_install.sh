@@ -1,7 +1,19 @@
 #!/bin/bash
+
+
+ehco $0
+
+ehco $1
+
+
+
 git='https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux_20201023'
 git2='https://raw.githubusercontent.com/soju6jan/SJVA2/master/bin/LinuxArm'
 alpine='/data/data/com.termux/files/usr/share/TermuxAlpine'
+
+
+exit 
+
 
 curl -LO $git/TermuxAlpine_sjva.sh
 bash TermuxAlpine_sjva.sh
