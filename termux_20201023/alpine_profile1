@@ -1,0 +1,2 @@
+sh /home/alpine_install.sh
+#rm -f /home/alpine_install.sh
