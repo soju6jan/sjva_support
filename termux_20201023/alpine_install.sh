@@ -1,4 +1,5 @@
 #!/bin/sh
+apk update
 apk add --no-cache git python3 py3-pip python3-dev py3-lxml py3-sqlalchemy py3-google-api-python-client py3-pillow apk py3-gevent py3-gevent-websocket py3-yarl py3-aiohttp py3-pycryptodome py3-google-api-python-client ffmpeg
 
 pip3 install flask-login flask-socketio flask-sqlalchemy pytz apscheduler markdown selenium celery redis telepot sqlitedict 
