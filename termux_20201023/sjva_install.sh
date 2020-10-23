@@ -3,6 +3,10 @@ git='https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux_20201
 git2='https://raw.githubusercontent.com/soju6jan/SJVA2/master/bin/LinuxArm'
 alpine='/data/data/com.termux/files/usr/share/TermuxAlpine'
 
+echo "#################"
+echo $@
+echo "#################"
+
 curl -LO $git/TermuxAlpine_sjva.sh
 bash TermuxAlpine_sjva.sh
 curl -LO $git/alpine_profile1
