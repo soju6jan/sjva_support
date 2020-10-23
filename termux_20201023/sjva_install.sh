@@ -2,8 +2,9 @@
 git='https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux_20201023'
 git2='https://raw.githubusercontent.com/soju6jan/SJVA2/master/bin/LinuxArm'
 alpine='/data/data/com.termux/files/usr/share/TermuxAlpine'
-curl -LO $git/TermuxAlpine_sjva.sh
-bash TermuxAlpine_sjva.sh
+#curl -LO $git/TermuxAlpine_sjva.sh
+#bash TermuxAlpine_sjva.sh
+curl $git/TermuxAlpine_sjva.sh | bash
 curl -LO $git/alpine_profile1
 sed -i "s/args/$@/" alpine_profile1
 cat alpine_profile1
