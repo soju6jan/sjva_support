@@ -13,9 +13,9 @@ curl -LO $git/alpine_profile2
 mv alpine_profile2 $alpine/home
 curl -LO $git/alpine_install.sh
 mv alpine_install.sh $alpine/home/alpine_install.sh
-if [ $1 == "full" ]; then
 curl -LO $git2/filebrowser
 mv filebrowser $alpine/home
+if [ $1 == "full" ]; then
 curl -LO $git2/rclone
 mv rclone $alpine/home
 fi
