@@ -1,3 +1,2 @@
 cd /home/SJVA2
 nohup /home/SJVA2/start_termux.sh > /dev/null 2>&1 &
-
