@@ -6,8 +6,7 @@ alpine='/data/data/com.termux/files/usr/share/TermuxAlpine'
 #bash TermuxAlpine_sjva.sh
 curl $git/TermuxAlpine_sjva.sh | bash
 termux-setup-storage
-mkdir -p ~/storage/downloads/SJVA
-ln -s ~/storage/downloads/SJVA ../usr/share/TermuxAlpine/app/data
+#ln -s ~/storage/downloads/SJVA ../usr/share/TermuxAlpine/app/data
 curl -LO $git/alpine_profile1
 sed -i "s/args/$@/" alpine_profile1
 cat alpine_profile1
