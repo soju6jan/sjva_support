@@ -4,3 +4,4 @@ if [ ! -d ../usr/share/TermuxAlpine/app/data ]; then
   ln -sf ~/storage/downloads/SJVA ../usr/share/TermuxAlpine/app/data
 fi
 startalpine
+
