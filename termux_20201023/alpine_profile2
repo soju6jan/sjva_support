@@ -7,4 +7,5 @@ if [ -f "/usr/sbin/php-fpm7" ]; then
     echo "Run php.."
     php-fpm7 -R
 fi
-cd /app && nohup ./start_termux.sh > /dev/null 2>&1 &
+cd /app 
+nohup ./start_termux.sh > /dev/null 2>&1 &
