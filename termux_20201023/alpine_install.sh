@@ -21,5 +21,8 @@ if [ -f "/home/rclone" ] ; then
   mv /home/rclone /app/bin/LinuxArm
 fi
 
+cd /app
+curl -LO 
+
 echo "Install completed.. Restart Temux.."
 #cd SJVA2 && ./start_termux.sh
