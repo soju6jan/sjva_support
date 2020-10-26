@@ -22,7 +22,11 @@ if [ -f "/home/rclone" ] ; then
 fi
 
 cd /app
-curl -LO 
+wget -O k.sh https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux_20201023/k.sh
+cp ./k.sh /usr/local/bin/k
+cp ./start_termux.sh /usr/local/bin/s
+chmod 777 /usr/local/bin/k
+chmod 777 /usr/local/bin/s
 
 echo "Install completed.. Restart Temux.."
 #cd SJVA2 && ./start_termux.sh
