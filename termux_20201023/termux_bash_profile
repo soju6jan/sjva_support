@@ -1,7 +1,13 @@
 termux-wake-lock
 if [ ! -d ../usr/share/TermuxAlpine/app/data ]; then
   mkdir -p ~/storage/downloads/SJVA
+  mkdir -p ~/storage/downloads/SJVA/db
+  mkdir -p ~/storage/downloads/SJVA/command
+  mkdir -p ~/storage/downloads/SJVA/output
   ln -sf ~/storage/downloads/SJVA ../usr/share/TermuxAlpine/app/data
+  ln -sf ~/storage/downloads/SJVA/db ../usr/share/TermuxAlpine/app/data/db
+  ln -sf ~/storage/downloads/SJVA/command ../usr/share/TermuxAlpine/app/data/command
+  ln -sf ~/storage/downloads/SJVA/output ../usr/share/TermuxAlpine/app/data/output
   ln -sf ~/storage ../usr/share/TermuxAlpine/mnt/storage
 fi
 startalpine
