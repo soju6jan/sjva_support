@@ -1,2 +1,3 @@
 termux-wake-lock
+ln -s ~/storage/downloads/SJVA ../usr/share/TermuxAlpine/app/data
 startalpine

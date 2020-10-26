@@ -12,12 +12,14 @@ apk add --no-cache ffmpeg py3-pillow py3-wcwidth py3-google-api-python-client
 pip install guessit plexapi
 fi
 cd /home
-git clone --depth 1 https://github.com/soju6jan/sjva2_src_obfuscate SJVA2
-mkdir -p /home/SJVA2/bin/LinuxArm
+git clone --depth 1 https://github.com/soju6jan/sjva2_src_obfuscate /app
+mkdir -p /app/bin/LinuxArm
 if [ -f "/home/filebrowser" ] ; then
-  mv /home/filebrowser /home/SJVA2/bin/LinuxArm
+  mv /home/filebrowser /app/bin/LinuxArm
 fi
 if [ -f "/home/rclone" ] ; then
-  mv /home/rclone /home/SJVA2/bin/LinuxArm
+  mv /home/rclone /app/bin/LinuxArm
 fi
-cd SJVA2 && ./start_termux.sh
+
+echo "Install completed.. Restart Temux.."
+#cd SJVA2 && ./start_termux.sh
