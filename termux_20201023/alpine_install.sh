@@ -20,7 +20,10 @@ fi
 if [ -f "/home/rclone" ] ; then
   mv /home/rclone /app/bin/LinuxArm
 fi
-
+apk add --no-cache tzdata
+cp /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+echo "Asia/Seoul" > /etc/timezone
+apk del --no-cache tzdata
 cd /app
 wget -O k.sh https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux_20201023/k.sh
 cp ./k.sh /usr/local/bin/k
