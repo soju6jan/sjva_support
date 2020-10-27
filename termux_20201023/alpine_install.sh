@@ -28,7 +28,7 @@ apk del --no-cache tzdata
 cd /app
 wget -O k.sh https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux_20201023/k.sh
 cp ./k.sh /usr/local/bin/k
-wget -O k.sh https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux_20201023/s.sh
+wget -O s.sh https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux_20201023/s.sh
 cp ./s.sh /usr/local/bin/s
 chmod 777 /usr/local/bin/k
 chmod 777 /usr/local/bin/s
