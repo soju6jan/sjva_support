@@ -9,7 +9,7 @@ apk add --no-cache python3 py3-pip python3-dev py3-lxml py3-sqlalchemy py3-geven
 pip3 install flask-login flask-socketio flask-sqlalchemy pytz apscheduler selenium celery redis telepot sqlitedict 
 if [ "$1" == "full" ]; then
 apk add --no-cache ffmpeg py3-pillow py3-wcwidth py3-google-api-python-client
-pip install guessit plexapi
+pip3 install guessit plexapi
 fi
 cd /home
 git clone --depth 1 https://github.com/soju6jan/sjva2_src_obfuscate /app
