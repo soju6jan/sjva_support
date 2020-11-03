@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 #LINE="========================================================"
 if [ $0 != $PREFIX/bin/si ]; then
-    cp -f $0 $PREFIX/bin/si
+    mv -f $0 $PREFIX/bin/si
     chmod +x $PREFIX/bin/si
 fi
 LINE="==========================================="
