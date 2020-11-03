@@ -215,9 +215,10 @@ while true; do
             stop_sjva
             $PREFIX/var/service/sjva/run
             ;;
+        \n) ;;
         *)
             $PACKAGE_CMD clean
-            echo -e "\n\n스크립트를 종료합니다.\n설치된 패키지가 있다면 Termux를 재시작하세요."
+            echo -e "\n\nsi 명령으로 재실행.\n설치된 패키지가 있다면 Termux를 재시작하세요."
             exit 1
     esac
     echo -e "\n"
