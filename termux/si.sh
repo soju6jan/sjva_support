@@ -217,6 +217,7 @@ while true; do
             ;;
         [\s\n]) ;;
         *)
+            echo "AAAA $cmd BBBB"
             #$PACKAGE_CMD clean
             echo -e "\n\nsi 명령으로 재실행.\n설치된 패키지가 있다면 Termux를 재시작하세요."
             exit 1
