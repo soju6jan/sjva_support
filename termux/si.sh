@@ -65,7 +65,7 @@ base() {
     bash ./start_termux_native.sh
 EOF
     chmod +x $PREFIX/var/service/sjva/run
-    sv-enable sjva > /dev/null 2>&1
+    sv-enable sjva
 }
 
 install_filebrowser() {
@@ -114,8 +114,8 @@ install_nginx() {
     cp -f $SJVA_HOME/data/custom/nginx/files/index.html $DIR_DATA/nginx/www/index.html
     cp -f $SJVA_HOME/data/custom/nginx/files/phpinfo.php $DIR_DATA/nginx/www/phpinfo.php
     cp -f $SJVA_HOME/data/custom/nginx/files/guide.php $DIR_DATA/nginx/www/guide.php
-    sv-enable nginx > /dev/null 2>&1
-    sv-enable php-fpm > /dev/null 2>&1
+    sv-enable nginx
+    sv-enable php-fpm
 }
 
 install_code_server() {
@@ -128,7 +128,7 @@ install_code_server() {
     exec code-server 
 EOF
     chmod +x $PREFIX/var/service/code/run
-    sv-enable code > /dev/null 2>&1
+    sv-enable code
 }
 
 install_code_server2() {
@@ -137,11 +137,11 @@ install_code_server2() {
     config="$HOME/.config/code-server/config.yaml"
     old=`sed -n '3p' $config | awk '{print $2}'`
     sed -i "s/$old/$new/" $config           
-    sv restart code > /dev/null 2>&1
+    sv restart code
 }
 
 stop_sjva() {
-    sv stop sjva > /dev/null 2>&1
+    sv stop sjva
     ps -eo pid,args | grep start_termux_native | grep -v grep | awk '{print $1}' | xargs -r kill -9
     ps -eo pid,args | grep sjva.py | grep -v grep | awk '{print $1}' | xargs -r kill -9
 }
@@ -164,7 +164,7 @@ install_aria() {
 
 while true; do
     menu
-    read -n 1 -s -r -p "메뉴 선택 > " cmd
+    read -n 1 -s -p "메뉴 선택 > " cmd
     case $cmd in
         1)  echo -e "\n\n권한을 허용해주세요."
             termux-setup-storage;;
@@ -188,7 +188,7 @@ while true; do
             echo "IP : `ifconfig wlan0`"
             echo "PORT : 8022"
             echo -e "USER : $WHOAMI"
-            sv-enable sshd ;;
+            sv-enable sshd;;
         d)  echo -e "\n\ntransmission 설치를 시작합니다."
             $PACKAGE_CMD install openssh
             mv $PREFIX/share/transmission/web $PREFIX/share/transmission/web_default
@@ -200,10 +200,11 @@ while true; do
         e) install_code_server;;
         f) install_code_server2;;
         y) 
-            sv stop sshd > /dev/null 2>&1
-            sv stop nginx > /dev/null 2>&1
-            sv stop php-fpm > /dev/null 2>&1
-            sv stop code > /dev/null 2>&1
+            sv stop sshd
+            sv stop nginx
+            sv stop php-fpm
+            sv stop code
+            sv stop transmission
             stop_sjva
             ps -eo pid,args | grep sv | grep -v grep | awk '{print $1}' | xargs -r kill -9
             sleep 1
