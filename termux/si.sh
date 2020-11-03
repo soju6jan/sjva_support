@@ -59,10 +59,10 @@ base() {
     fi
     #service 
     mkdir -p $PREFIX/var/service/sjva
-    cat <<- EOF >$PREFIX/var/service/sjva/run
-    #!/data/data/com.termux/files/usr/bin/sh
-    cd $HOME/sjva
-    bash ./start_termux_native.sh
+    cat <<EOF >$PREFIX/var/service/sjva/run
+#!/data/data/com.termux/files/usr/bin/sh
+cd $HOME/sjva
+bash ./start_termux_native.sh
 EOF
     chmod +x $PREFIX/var/service/sjva/run
     sv-enable sjva
@@ -123,9 +123,9 @@ install_code_server() {
     $PACKAGE_CMD install nodejs yarn build-essential python
     yarn global add code-server
     mkdir -p $PREFIX/var/service/code
-    cat <<- EOF >$PREFIX/var/service/code/run
-    #!/data/data/com.termux/files/usr/bin/sh
-    exec code-server 
+    cat <<EOF >$PREFIX/var/service/code/run
+#!/data/data/com.termux/files/usr/bin/sh
+exec code-server 
 EOF
     chmod +x $PREFIX/var/service/code/run
     sv-enable code
