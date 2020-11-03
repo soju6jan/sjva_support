@@ -19,7 +19,7 @@ menu() {
     echo -e " SJVA 설치 스크립트 v1.0"
     echo $LINE
     echo -e "<Install>"
-    echo "1. 저장소 접근 권한 허용"
+    echo "1. 저장소 접근 권한 허용 & 서비스 준비 (필수)"
     echo "2. SJVA 설치 (최소)"
     echo "3. 파일브라우저(SJVA용) 설치"
     echo "4. rclone(SJVA용) 설치 "
@@ -32,8 +32,9 @@ menu() {
     echo "c. sshd 설치"   
     echo "d. transmission 설치"
     echo "e. code-server 설치"
-    echo "f. code-server 암호변경"     
-    echo "y. kill all process" 
+    echo "f. code-server 암호변경"
+    echo "p. ps -ef"
+    echo "x. kill all process" 
     echo "z. SJVA foreground 실행"
     echo $LINE
 }
@@ -60,10 +61,10 @@ base() {
     fi
     #service 
     mkdir -p $PREFIX/var/service/sjva
-    cat <<- EOF >$PREFIX/var/service/sjva/run
-    #!/data/data/com.termux/files/usr/bin/sh
-    cd $HOME/sjva
-    bash ./start_termux_native.sh
+    cat <<EOF >$PREFIX/var/service/sjva/run
+#!/data/data/com.termux/files/usr/bin/sh
+cd $HOME/sjva
+bash ./start_termux_native.sh
 EOF
     chmod +x $PREFIX/var/service/sjva/run
     sv-enable sjva
@@ -108,7 +109,8 @@ install_nginx() {
     sed -i "s/sub_filter/#sub_filter/" $DIR_DATA/nginx/nginx.conf
     sed -i "s@127.0.0.1:9000;@unix:/data/data/com.termux/files/usr/var/run/php-fpm.sock;@" $DIR_DATA/nginx/nginx.conf
     rm -rf $PREFIX/etc/nginx/nginx.conf
-    ln -s $DIR_DATA/nginx/nginx.conf $PREFIX/etc/nginx/nginx.conf
+    ln -s $DIR_DATA/nginx/nginx.conf $PREFIX/etc/nginx/nginx.confder
+    
     sqlite3 $SJVA_HOME/data/db/sjva.db "UPDATE system_setting SET value='19999' WHERE key='port'"
     #cp -f $SJVA_HOME/data/custom/nginx/files/php.ini $HOME/.php/php.ini
     mkdir -p $DIR_DATA/nginx/www
@@ -124,9 +126,9 @@ install_code_server() {
     $PACKAGE_CMD install nodejs yarn build-essential python
     yarn global add code-server
     mkdir -p $PREFIX/var/service/code
-    cat <<- EOF >$PREFIX/var/service/code/run
-    #!/data/data/com.termux/files/usr/bin/sh
-    exec code-server 
+    cat <<EOF >$PREFIX/var/service/code/run
+#!/data/data/com.termux/files/usr/bin/sh
+exec code-server 
 EOF
     chmod +x $PREFIX/var/service/code/run
     sv-enable code
@@ -163,18 +165,36 @@ install_aria() {
     echo -e "\n\nSJVA nginx 플러그인에서 웹 UI를 설치하세요."
 }
 
+close() {
+    sv stop sshd
+    sv stop nginx
+    sv stop php-fpm
+    sv stop code
+    sv stop transmission
+    stop_sjva
+    ps -eo pid,args | grep sv | grep -v grep | awk '{print $1}' | xargs -r kill -9
+    sleep 1
+    ps -ef
+    
+}
+
 while true; do
     menu
     read -n 1 -s -p "메뉴 선택 > " cmd
     case $cmd in
         1)  echo -e "\n\n권한을 허용해주세요."
-            termux-setup-storage;;
-        2) base;;
-        3) install_filebrowser;;
-        4) install_rclone;;
-        5) install_ffmpeg;;
-        6) install_nginx;;
-        9) all;;
+            termux-setup-storage
+            $PACKAGE_CMD update
+            $PACKAGE_CMD install termux-services
+            close
+            echo -e "\n\nTermux 강제 중지 or exit 입력하여 종료 후 재실행하여 si를 입력하세요."
+            exit;;
+        2)  base;;
+        3)  install_filebrowser;;
+        4)  install_rclone;;
+        5)  install_ffmpeg;;
+        6)  install_nginx;;
+        9)  all;;
         a)  echo -e "\n\naria2 설치를 시작합니다."
             $PACKAGE_CMD install aria2
             echo -e "\nSJVA nginx 플러그인에서 웹 UI를 설치하세요.";;
@@ -198,21 +218,12 @@ while true; do
             rm -rf $HOME/twc
             echo -e "\n\nlocalhost:9091 or localhost:9999/transmission"
             ;;
-        e) install_code_server;;
-        f) install_code_server2;;
-        y) 
-            sv stop sshd
-            sv stop nginx
-            sv stop php-fpm
-            sv stop code
-            sv stop transmission
-            stop_sjva
-            ps -eo pid,args | grep sv | grep -v grep | awk '{print $1}' | xargs -r kill -9
-            sleep 1
-            ps -ef
+        e)  install_code_server;;
+        f)  install_code_server2;;
+        p)  echo `ps -ef`
+        x)  close
             echo -e "\n\nexit 명령을 입력하여 Termux를 종료하세요"
-            exit
-            ;;
+            exit;;
         z)
             stop_sjva
             $PREFIX/var/service/sjva/run
