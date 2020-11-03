@@ -164,7 +164,7 @@ install_aria() {
 
 while true; do
     menu
-    read -n 1 -r -p "메뉴 선택 > " cmd
+    read -n 1 -s -r -p "메뉴 선택 > " cmd
     case $cmd in
         1)  echo -e "\n\n권한을 허용해주세요."
             termux-setup-storage;;
