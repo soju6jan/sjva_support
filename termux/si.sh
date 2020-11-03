@@ -3,6 +3,7 @@
 if [ $0 != $PREFIX/bin/si ]; then
     mv -f $0 $PREFIX/bin/si
     chmod +x $PREFIX/bin/si
+    exit
 fi
 LINE="==========================================="
 SJVA_HOME=$HOME/sjva
@@ -59,10 +60,10 @@ base() {
     fi
     #service 
     mkdir -p $PREFIX/var/service/sjva
-    cat <<EOF >$PREFIX/var/service/sjva/run
-#!/data/data/com.termux/files/usr/bin/sh
-cd $HOME/sjva
-bash ./start_termux_native.sh
+    cat <<- EOF >$PREFIX/var/service/sjva/run
+    #!/data/data/com.termux/files/usr/bin/sh
+    cd $HOME/sjva
+    bash ./start_termux_native.sh
 EOF
     chmod +x $PREFIX/var/service/sjva/run
     sv-enable sjva
@@ -123,9 +124,9 @@ install_code_server() {
     $PACKAGE_CMD install nodejs yarn build-essential python
     yarn global add code-server
     mkdir -p $PREFIX/var/service/code
-    cat <<EOF >$PREFIX/var/service/code/run
-#!/data/data/com.termux/files/usr/bin/sh
-exec code-server 
+    cat <<- EOF >$PREFIX/var/service/code/run
+    #!/data/data/com.termux/files/usr/bin/sh
+    exec code-server 
 EOF
     chmod +x $PREFIX/var/service/code/run
     sv-enable code
@@ -218,9 +219,8 @@ while true; do
             ;;
         [\s\n]) ;;
         *)
-            echo "AAAA $cmd BBBB"
             #$PACKAGE_CMD clean
-            echo -e "\n\nsi 명령으로 재실행.\n설치된 패키지가 있다면 Termux를 재시작하세요."
+            echo -e "\n\n설치된 서비스가 있다면 Termux를 재시작하세요.\nsi입력시 이 스크립트가 실행됩니다."
             exit 1
     esac
     echo -e "\n"
