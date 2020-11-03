@@ -109,7 +109,7 @@ install_nginx() {
     sed -i "s/sub_filter/#sub_filter/" $DIR_DATA/nginx/nginx.conf
     sed -i "s@127.0.0.1:9000;@unix:/data/data/com.termux/files/usr/var/run/php-fpm.sock;@" $DIR_DATA/nginx/nginx.conf
     rm -rf $PREFIX/etc/nginx/nginx.conf
-    ln -s $DIR_DATA/nginx/nginx.conf $PREFIX/etc/nginx/nginx.confder
+    ln -s $DIR_DATA/nginx/nginx.conf $PREFIX/etc/nginx/nginx.conf
     
     sqlite3 $SJVA_HOME/data/db/sjva.db "UPDATE system_setting SET value='19999' WHERE key='port'"
     #cp -f $SJVA_HOME/data/custom/nginx/files/php.ini $HOME/.php/php.ini
