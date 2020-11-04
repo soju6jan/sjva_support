@@ -16,7 +16,7 @@ WHOAMI=`whoami`
 
 menu() {
     clear
-    echo -e " SJVA 설치 스크립트 v1.0"
+    echo -e " SJVA 설치 스크립트 v0.1"
     echo $LINE
     echo -e "<Install>"
     echo "1. 저장소 접근 권한 허용 & 서비스 준비 (필수)"
