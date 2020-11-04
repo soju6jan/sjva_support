@@ -33,9 +33,12 @@ menu() {
     echo "d. transmission 설치"
     echo "e. code-server 설치"
     echo "f. code-server 암호변경"
-    echo "p. ps -ef"
+    echo $LINE
+    echo "w. ps -ef"
     echo "x. kill all process" 
+    echo "y. SJVA background 실행. z이용 후 복귀시만 사용"
     echo "z. SJVA foreground 실행"
+    echo "0. 스크립트 업데이트"
     echo $LINE
 }
 
@@ -82,6 +85,8 @@ install_filebrowser() {
 install_rclone() {
     echo -e "\n\nrclone(SJVA용)를 설치합니다."
     mkdir -p $DIR_BIN
+    ps -eo pid,args | grep rclone | grep -v grep | awk '{print $1}' | xargs -r kill -9
+    rm -f $GIT2/master/bin/LinuxArm/rclone
     wget -O $DIR_BIN/rclone $GIT2/master/bin/LinuxArm/rclone
     chmod +x $DIR_BIN/rclone
     version=`$DIR_BIN/rclone --version`
@@ -211,23 +216,33 @@ while true; do
             echo -e "USER : $WHOAMI"
             sv-enable sshd;;
         d)  echo -e "\n\ntransmission 설치를 시작합니다."
-            $PACKAGE_CMD install openssh
-            mv $PREFIX/share/transmission/web $PREFIX/share/transmission/web_default
+            $PACKAGE_CMD install transmission
+            if [ ! -d $PREFIX/share/transmission/web_default ]; then
+                mv $PREFIX/share/transmission/web $PREFIX/share/transmission/web_default
+            else
+                rm -rf $PREFIX/share/transmission/web
+            fi
             git clone https://github.com/ronggang/transmission-web-control $HOME/twc
             mv $HOME/twc/src $PREFIX/share/transmission/web
             rm -rf $HOME/twc
             echo -e "\n\nlocalhost:9091 or localhost:9999/transmission"
-            ;;
+            sv-enable transmission;;
         e)  install_code_server;;
         f)  install_code_server2;;
-        p)  echo `ps -ef`;;
+        p)  echo "`ps -ef`";;
         x)  close
             echo -e "\n\nexit 명령을 입력하여 Termux를 종료하세요"
             exit;;
-        z)
-            stop_sjva
-            $PREFIX/var/service/sjva/run
-            ;;
+        y)  echo -e "\n\nSJVA를 시작하였습니다."
+            sv up sjva;;
+        z)  stop_sjva
+            $PREFIX/var/service/sjva/run;;
+        0)  echo -e "\n\n업데이트를 시작합니다."
+            wget -O $HOME/si.sh https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux/si.sh
+            chmod +x $HOME/si.sh
+            mv $HOME/si.sh $PREFIX/bin/si
+            echo -e "\n\n재실행하세요."
+            exit;;
         [\s\n]) ;;
         *)
             #$PACKAGE_CMD clean
