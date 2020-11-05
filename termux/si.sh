@@ -229,6 +229,10 @@ while true; do
             sv-enable transmission;;
         e)  install_code_server;;
         f)  install_code_server2;;
+        g)  
+            wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/de-apt-xfce4.sh && bash de-apt-xfce4.sh
+            ;;
+
         p)  echo "`ps -ef`";;
         x)  close
             echo -e "\n\nexit 명령을 입력하여 Termux를 종료하세요"
