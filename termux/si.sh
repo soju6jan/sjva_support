@@ -22,7 +22,7 @@ menu() {
     echo "1. 저장소 접근 권한 허용 & 서비스 준비 (필수)"
     echo "2. SJVA 설치 (최소)"
     echo "3. 파일브라우저(SJVA용) 설치"
-    echo "4. rclone(SJVA용) 설치 (64bit) "
+    echo "4. rclone(SJVA용) 설치"
     echo "5. ffmpeg 설치" 
     echo "6. nginx 설치"
     echo "9. SJVA 설치 (전체)"
@@ -76,7 +76,17 @@ EOF
 install_filebrowser() {
     echo -e "\n\n파일브라우저(SJVA용)를 설치합니다."
     mkdir -p $DIR_BIN
-    wget -O $DIR_BIN/filebrowser $GIT2/master/bin/LinuxArm/filebrowser
+    ps -eo pid,args | grep filebrowser | grep -v grep | awk '{print $1}' | xargs -r kill -9
+    rm -f $DIR_BIN/filebrowser
+    uname=`uname -m`
+    echo $uname
+    if [ $uname == "aarch64" ]; then
+        echo -e "64bit 설치\n"
+        wget -O $DIR_BIN/filebrowser https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux/filebrowser
+    else
+        echo -e "32bit 설치\n"
+        wget -O $DIR_BIN/filebrowser https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux/filebrowser_32
+    fi
     chmod +x $DIR_BIN/filebrowser
     version=`$DIR_BIN/filebrowser version`
     echo -e "filebrowser 버전\n $version"
@@ -87,7 +97,15 @@ install_rclone() {
     mkdir -p $DIR_BIN
     ps -eo pid,args | grep rclone | grep -v grep | awk '{print $1}' | xargs -r kill -9
     rm -f $DIR_BIN/rclone
-    wget -O $DIR_BIN/rclone https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux/rclone
+    uname=`uname -m`
+    echo $uname
+    if [ $uname == "aarch64" ]; then
+        echo -e "64bit 설치\n"
+        wget -O $DIR_BIN/rclone https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux/rclone
+    else
+        echo -e "32bit 설치\n"
+        wget -O $DIR_BIN/rclone https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux/rclone_32
+    fi
     chmod +x $DIR_BIN/rclone
     version=`$DIR_BIN/rclone --version`
     echo -e "rclone 버전\n $version"
