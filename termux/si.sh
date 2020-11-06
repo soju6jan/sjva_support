@@ -16,13 +16,13 @@ WHOAMI=`whoami`
 
 menu() {
     clear
-    echo -e " SJVA 설치 스크립트 v0.1"
+    echo -e " SJVA 설치 스크립트 v0.2"
     echo $LINE
     echo -e "<Install>"
     echo "1. 저장소 접근 권한 허용 & 서비스 준비 (필수)"
     echo "2. SJVA 설치 (최소)"
     echo "3. 파일브라우저(SJVA용) 설치"
-    echo "4. rclone(SJVA용) 설치 "
+    echo "4. rclone(SJVA용) 설치 (64bit) "
     echo "5. ffmpeg 설치" 
     echo "6. nginx 설치"
     echo "9. SJVA 설치 (전체)"
@@ -86,8 +86,8 @@ install_rclone() {
     echo -e "\n\nrclone(SJVA용)를 설치합니다."
     mkdir -p $DIR_BIN
     ps -eo pid,args | grep rclone | grep -v grep | awk '{print $1}' | xargs -r kill -9
-    rm -f $GIT2/master/bin/LinuxArm/rclone
-    wget -O $DIR_BIN/rclone $GIT2/master/bin/LinuxArm/rclone
+    rm -f $DIR_BIN/rclone
+    wget -O $DIR_BIN/rclone https://raw.githubusercontent.com/soju6jan/sjva_support/master/termux/rclone
     chmod +x $DIR_BIN/rclone
     version=`$DIR_BIN/rclone --version`
     echo -e "rclone 버전\n $version"
