@@ -229,7 +229,7 @@ while true; do
             sv-enable transmission;;
         e)  install_code_server;;
         f)  install_code_server2;;
-        p)  echo "`ps -ef`";;
+        w)  echo "`ps -ef`";;
         x)  close
             echo -e "\n\nexit 명령을 입력하여 Termux를 종료하세요"
             exit;;
