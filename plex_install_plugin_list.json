@@ -76,15 +76,6 @@
         },
         {
             "type" : "agent",
-            "identifier" : "com.plexapp.agents.naver_music",   
-            "name" : "NaverMusic Fork버전",
-            "url_icon" : "https://github.com/soju6jan/NaverMusic.bundle/raw/master/Contents/Resources/icon-default.png",
-            "description" : "hojel님 NaverMusic fork 하여 정상 동작하도록 수정",
-            "author" : "soju6jan",
-            "url_zip" : "https://github.com/soju6jan/NaverMusic.bundle/archive/master.zip"
-        },
-        {
-            "type" : "agent",
             "identifier" : "com.plexapp.agents.youtube_music",   
             "name" : "YouTubeMusic",
             "url_icon" : "",
@@ -121,31 +112,12 @@
         },
         {
             "type" : "agent",
-            "identifier" : "com.plexapp.agents.sj_jav_agent",   
-            "name" : "SJ JAV",
-            "url_icon" : "",
-            "description" : "SJVA 와 연동하는 JAV 에이전트",
-            "author" : "soju6jan",
-            "url_zip" : "https://github.com/soju6jan/sj_jav/archive/master.zip",
-            "root" : ["sj_jav-master", "SJ_JAV_Agent.bundle"]
-        },
-        {
-            "type" : "agent",
             "identifier" : "com.plexapp.agents.alsonglyricfind",   
             "name" : "AlsongLyricFind",
             "url_icon" : "",
             "description" : "알송 가사 서버에서 가사를 가져오는 에이전트",
             "author" : "soju6jan",
-            "url_zip" : "https://github.com/soju6jan/AlsongLyricFind.bundle/archive/master.zip",
-        },
-        {
-            "type" : "agent",
-            "identifier" : "com.plexapp.agents.smiconvert",   
-            "name" : "smi2srt",
-            "url_icon" : "",
-            "description" : "SMI파일을 SRT 파일로 변경해주는 에이전트",
-            "author" : "soju6jan",
-            "url_zip" : "https://github.com/soju6jan/SmiConvert.bundle/archive/master.zip",
+            "url_zip" : "https://github.com/soju6jan/AlsongLyricFind.bundle/archive/master.zip"
         }
     ]
 }
