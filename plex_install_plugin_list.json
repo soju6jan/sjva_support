@@ -81,7 +81,7 @@
             "url_icon" : "https://github.com/soju6jan/NaverMusic.bundle/raw/master/Contents/Resources/icon-default.png",
             "description" : "hojel님 NaverMusic fork 하여 정상 동작하도록 수정",
             "author" : "soju6jan",
-            "url_zip" : "https://github.com/soju6jan/NaverMusic.bundle/archive/master.zip",
+            "url_zip" : "https://github.com/soju6jan/NaverMusic.bundle/archive/master.zip"
         },
         {
             "type" : "agent",
@@ -90,7 +90,7 @@
             "url_icon" : "",
             "description" : "rbits 님이 만드신 Youtube 에이전트",
             "author" : "rbits",
-            "url_zip" : "https://github.com/rbitts/YouTubeMusic.bundle/archive/master.zip",
+            "url_zip" : "https://github.com/rbitts/YouTubeMusic.bundle/archive/master.zip"
         },
         {
             "type" : "agent",
