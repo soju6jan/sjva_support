@@ -50,7 +50,8 @@ base() {
     python3 -m pip install --upgrade pip
     pip3 install --upgrade setuptools
     pip3 install wheel
-    pip3 install flask-login flask-socketio flask-sqlalchemy pytz apscheduler selenium celery redis telepot sqlitedict lxml sqlalchemy gevent-websocket pycryptodome markdown psutil
+    pip3 install flask-login flask-sqlalchemy pytz apscheduler selenium celery redis telepot sqlitedict lxml sqlalchemy gevent-websocket pycryptodome markdown psutil
+    pip3 install flask-socketio==4.3.1 python-engineio==3.13.2 python-socketio==4.6.0
 
     # sjva
     if [ -d $SJVA_HOME ]; then rm -rf $SJVA_HOME; fi
