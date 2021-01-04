@@ -1,9 +1,9 @@
 #!/bin/bash
-#if [ $0 != /usr/bin/si ]; then
-#    mv -f $0 /usr/bin/si
-#    chmod +x /usr/bin/si
-#    exit
-#fi
+if [ $0 != /usr/bin/si ]; then
+    mv -f $0 /usr/bin/si
+    chmod +x /usr/bin/si
+    exit
+fi
 LINE="==========================================="
 SJVA_HOME=/mnt/c/sjva
 DIR_DATA=$SJVA_HOME/data
