@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 export LANG=en_US.utf8
 NowDate=$(date +%Y%m%d)-$(date +%H%M)
-APP_HOME=/home/coder/project/SJ/SJVA2
+APP_HOME=/app
 if [ -f "$APP_HOME/data/db/epg.db" ] ; then
     cp $APP_HOME/data/db/epg.db $APP_HOME/data/sjva_support
 fi
