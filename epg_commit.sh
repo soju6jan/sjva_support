@@ -11,5 +11,5 @@ fi
 cd $APP_HOME/data/sjva_support && 
 git --git-dir $APP_HOME/data/sjva_support/.git add * && 
 git --git-dir $APP_HOME/data/sjva_support/.git commit -m $NowDate && 
-git --git-dir $APP_HOME/data/sjva_support/.git 'https://soju6jan:dlgkdbs02!0@github.com/soju6jan/sjva_support.git' --all
+git --git-dir $APP_HOME/data/sjva_support/.git push 'https://soju6jan:dlgkdbs02!0@github.com/soju6jan/sjva_support.git' --all
 
