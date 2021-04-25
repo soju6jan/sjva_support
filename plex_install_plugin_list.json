@@ -49,24 +49,6 @@
         },        
         {
             "type" : "agent",
-            "identifier" : "com.plexapp.agents.daum_movie",
-            "name" : "DaumMovie(axfree)",
-            "url_icon" : "https://github.com/axfree/DaumMovie.bundle/raw/master/Contents/Resources/icon-default.png",
-            "description" : "axfree님의 Daum Agent",
-            "author" : "axfree",
-            "url_zip" : "https://github.com/axfree/DaumMovie.bundle/archive/master.zip"
-        },
-        {
-            "type" : "agent",
-            "identifier" : "com.plexapp.agents.daum_tv_series",
-            "name" : "DaumMovieTVSeries(wonipapa)",
-            "url_icon" : "https://github.com/wonipapa/DaumMovieTVSeries.bundle/raw/master/Contents/Resources/icon-default.png",
-            "description" : "wonipapa님의 Daum Series Agent",
-            "author" : "wonipapa",
-            "url_zip" : "https://github.com/wonipapa/DaumMovieTVSeries.bundle/archive/master.zip"
-        },
-        {
-            "type" : "agent",
             "identifier" : "com.plexapp.agents.xbmcnfo",   
             "name" : "XBMCnfoMoviesImporter",
             "url_icon" : "https://github.com/gboudreau/XBMCnfoMoviesImporter.bundle/raw/master/Contents/Resources/icon-default.png",
