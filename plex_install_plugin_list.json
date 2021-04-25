@@ -67,33 +67,6 @@
         },
         {
             "type" : "agent",
-            "identifier" : "com.plexapp.agents.sj_daum",   
-            "name" : "SJ Daum",
-            "url_icon" : "https://github.com/soju6jan/SJ_Daum.bundle/raw/master/Contents/Resources/icon-default.png",
-            "description" : "SJ Daum Agent",
-            "author" : "soju6jan",
-            "url_zip" : "https://github.com/soju6jan/SJ_Daum.bundle/archive/master.zip"
-        },
-        {
-            "type" : "agent",
-            "identifier" : "com.plexapp.agents.youtube_music",   
-            "name" : "YouTubeMusic",
-            "url_icon" : "",
-            "description" : "rbits 님이 만드신 Youtube 에이전트",
-            "author" : "rbits",
-            "url_zip" : "https://github.com/rbitts/YouTubeMusic.bundle/archive/master.zip"
-        },
-        {
-            "type" : "agent",
-            "identifier" : "com.plexapp.agents.localtvextras",
-            "name" : "LocalTVExtras",
-            "url_icon" : "https://github.com/contrary-cat/LocalTVExtras.bundle/raw/master/Contents/Resources/icon-default.png",
-            "description" : "TV쇼에 부가영상을 넣을 수 있는 Agent",
-            "author" : "contrary-cat",
-            "url_zip" : "https://github.com/contrary-cat/LocalTVExtras.bundle/archive/master.zip"
-        },        
-        {
-            "type" : "agent",
             "identifier" : "com.plexapp.agents.xbmcnfo",   
             "name" : "XBMCnfoMoviesImporter",
             "url_icon" : "https://github.com/gboudreau/XBMCnfoMoviesImporter.bundle/raw/master/Contents/Resources/icon-default.png",
