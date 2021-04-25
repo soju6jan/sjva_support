@@ -39,15 +39,6 @@
             "url" : "https://github.com/soju6jan/SJVA-Scanners/raw/master/SJVA_Scanner_KoreaTV.py"
         },
         {
-            "type" : "scanner_show",
-            "identifier" : "scanner_show|SJVA_Scanner_KoreaTV_Download.py",
-            "name" : "Scanner for Korea TV Download",
-            "url_icon" : "",
-            "description" : "국내TV 다운로드 폴더용 스캐너",
-            "author" : "soju6jan",
-            "url" : "https://github.com/soju6jan/SJVA-Scanners/raw/master/SJVA_Scanner_KoreaTV_Download.py"
-        },        
-        {
             "type" : "agent",
             "identifier" : "com.plexapp.agents.xbmcnfo",   
             "name" : "XBMCnfoMoviesImporter",
