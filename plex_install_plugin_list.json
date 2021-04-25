@@ -2,25 +2,6 @@
     "version" : "2020122600",
     "list" : [
         {
-            "type" : "normal",
-            "identifier" : "com.plexapp.plugins.SJVA",   
-            "name" : "SJVA",
-            "url_icon" : "https://github.com/soju6jan/SJVA.bundle/raw/master/SJVA.bundle/Contents/Resources/icon-default.png",
-            "description" : "SJVA",
-            "author" : "soju6jan",
-            "url_zip" : "https://github.com/soju6jan/SJVA.bundle/archive/master.zip",
-            "root" : ["SJVA.bundle-master", "SJVA.bundle"]
-        },
-        {
-            "type" : "agent",
-            "identifier" : "com.plexapp.agents.sjva_agent",   
-            "name" : "SJVA Agent",
-            "url_icon" : "https://github.com/soju6jan/SjvaAgent.bundle/raw/main/Contents/Resources/icon-default.png",
-            "description" : "SJVA와 연동하여 메타데이터를 가져오는 통합 에이전트",
-            "author" : "soju6jan",
-            "url_zip" : "https://github.com/soju6jan/SjvaAgent.bundle/archive/main.zip"
-        },
-        {
             "type" : "scanner_show",
             "identifier" : "scanner_show|Plex_Series_Scanner_Patch.py",
             "name" : "Plex Series Scanner Patch",
@@ -37,6 +18,15 @@
             "description" : "국내TV용 스캐너. E다음만 회차인식, 천회이상 인식등.",
             "author" : "soju6jan",
             "url" : "https://github.com/soju6jan/SJVA-Scanners/raw/master/SJVA_Scanner_KoreaTV.py"
+        },
+        {
+            "type" : "agent",
+            "identifier" : "com.plexapp.agents.sjva_agent",   
+            "name" : "SJVA Agent",
+            "url_icon" : "https://github.com/soju6jan/SjvaAgent.bundle/raw/main/Contents/Resources/icon-default.png",
+            "description" : "SJVA와 연동하여 메타데이터를 가져오는 통합 에이전트",
+            "author" : "soju6jan",
+            "url_zip" : "https://github.com/soju6jan/SjvaAgent.bundle/archive/main.zip"
         },
         {
             "type" : "agent",
